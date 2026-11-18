@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "formlang-tp"
+version = "0.1.0"
+description = "КВ-граматики, нормальна форма Хомського, рівняння над мовами, лема про накачку та дерева виводу SIPL"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Альбіна Кара" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5", "build>=1"]
+
+[project.scripts]
+formlang = "formlang.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+formlang = ["data/*.cfg"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["RUF001"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
